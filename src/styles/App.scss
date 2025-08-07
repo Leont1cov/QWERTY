@@ -1,10 +1,16 @@
 // font-awesome
 @import "../font-awesome/font-awesome.scss";
 
-//Шрифты
+// Шрифты
 
 // utils
 
 // components
 
 // pages
+
+.sign-in-button {
+  &:hover {
+    color: red;
+  }
+}
