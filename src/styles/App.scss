@@ -1,0 +1,19 @@
+// font-awesome, Шрифты
+@use "./font-awesome/font-awesome";
+
+// globals
+@use "./globals/body";
+@use "./globals/mixins";
+@use "./globals/colors";
+
+// Шрифты
+
+//ui
+@use "./components/ui/button";
+
+// components
+@use "./components/main";
+@use "./components/sidebar";
+@use "PostPublication.scss";
+
+// pages
