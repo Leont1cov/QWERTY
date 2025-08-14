@@ -1,48 +1,57 @@
 @use "./globals/colors" as *;
 
+//! Файл PostPublication должен лежать в папке styles/components т.к. там все компоненты
+
+//! 1 компонент - 1 файл. У тебя не может быть в файле "PostPubliication" и post и postRight и т.д. Это отдельные секции. Можно прописать::after
+
 .post {
-    display: flex;
-    border: $color-gray solid 1px;
-    padding: 10px;
-    min-width: 400px;
+  display: flex;
+  border: $color-gray solid 1px;
+  padding: 10px;
+  min-width: 400px;
 
-    &__picture {
-        padding-right: 10px;
+  &__picture {
+    padding-right: 10px;
 
-        &--profilePicture {
-            height: 40px;
-            width: 40px;
-            background-color: $color-gray;
-            border-radius: 20px;
-        }
+    &--profilePicture {
+      height: 40px;
+      width: 40px;
+      background-color: $color-gray;
+      border-radius: 20px;
     }
+  }
 }
 
-.postRight {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+//! 1 компонент - 1 файл. У тебя не может быть в файле "PostPubliication" и post и postRight и т.д. Это отдельные секции. Можно прописать::after
+// .post {
+//     &__right {}
+// }
 
-    &__textarea {
-        border: none;
-        resize: none;
-        outline: none;
-        font-size: 1.1rem;
-        padding-top: 10px;
-        margin-bottom: 5px;
-    }
+.postRight {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__textarea {
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 1.1rem;
+    padding-top: 10px;
+    margin-bottom: 5px;
+  }
 }
 
 .postBottom {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    &__imageBtn {
-        transition: color 0.2s ease;
-        cursor: pointer;
+  &__imageBtn {
+    transition: color 0.2s ease;
+    cursor: pointer;
 
-        &:hover {
-            color: $color-black-hover;
-        }
+    &:hover {
+      color: $color-black-hover;
     }
+  }
 }
