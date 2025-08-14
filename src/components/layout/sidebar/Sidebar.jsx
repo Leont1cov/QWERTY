@@ -1,5 +1,5 @@
-import Button from "../../ui/Button";
-import SidebarItem from "./SidebarItem";
+import Button from "../../ui/Button"
+import SidebarItem from "./SidebarItem"
 
 export default function Sidebar() {
   return (
@@ -15,8 +15,12 @@ export default function Sidebar() {
           <SidebarItem iconName={"fa-star-o"} title={"Bookmarks"} />
           <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
         </ul>
-        <Button title={"Post"} />
+        <Button
+          title={"Post"}
+          buttonClass="button"
+          button__titleClass="button__title"
+        />
       </div>
     </div>
-  );
+  )
 }
