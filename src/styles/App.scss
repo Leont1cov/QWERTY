@@ -6,12 +6,11 @@
 @use "./globals/mixins";
 @use "./globals/colors";
 
-// Шрифты
-
 //ui
 @use "./components/ui/button";
 
 // components
+@use "./components/header";
 @use "./components/main";
 @use "./components/sidebar";
 @use "PostPublication.scss";
