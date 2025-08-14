@@ -1,0 +1,21 @@
+@use "/src/styles/globals/colors" as *;
+
+.button {
+  border: none;
+  border-radius: 24px;
+  padding: 16px 16px;
+  width: 230px;
+  background-color: $color-black;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-black-hover;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-white;
+  }
+}
