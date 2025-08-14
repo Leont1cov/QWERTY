@@ -1,63 +1,67 @@
 .post {
-    display: flex;
-    border: lightgray solid 1px;
-    padding: 10px;
-    min-width: 400px;
+  display: flex;
+  border: lightgray solid 1px; //! нужно занести этот цвет в hex формате в colors.scss и подключить его сюда
+  padding: 10px;
+  min-width: 400px;
 
-    &__picture {
-        padding-right: 10px;
+  &__picture {
+    padding-right: 10px;
 
-        &--profilePicture {
-            display: block;
-            height: 40px;
-            width: 40px;
-            background-color: gray;
-            border-radius: 20px;
-        }
+    &--profilePicture {
+      display: block;
+      height: 40px;
+      width: 40px;
+      background-color: gray; //! hex всё так же
+      border-radius: 20px;
     }
+  }
 }
 
 .postRight {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; //! бесполезный код, он ни на что не влияет
 
-    &__textarea {
-        border: none;
-        resize: none;
-        outline: none;
-        font-size: 1.1rem;
-        padding-top: 10px;
-        margin-bottom: 5px;
-    }
+  &__textarea {
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 1.1rem;
+    padding-top: 10px;
+    margin-bottom: 5px;
+  }
 }
 
 .postBottom {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    &__imageBtn {
-        cursor: pointer;
+  &__imageBtn {
+    cursor: pointer;
 
-        &:hover {
-            color: lighten(black, 15%);
-        }
+    &:hover {
+      color: lighten(
+        black,
+        15%
+      ); //! научись использовать transition. Данный метод, который ты указал -- не подойдет.
     }
+  }
 
-    &__postBtn {
-        margin-left: auto;
-        border: none;
-        outline: none;
-        background-color: black;
-        color: white;
-        border-radius: 15px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        padding: 5px 10px;
-        cursor: pointer;
+  //! Я написал специальный компонент Button ты можешь его найти и применить. Адаптируй его, научись работать с чужим кодом.
+  &__postBtn {
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    cursor: pointer;
 
-        &:hover {
-            background-color: lighten(black, 15%);
-        }
+    &:hover {
+      background-color: lighten(black, 15%); //! Всё также -- нужен transition.
     }
+  }
 }
