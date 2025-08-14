@@ -3,7 +3,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 24px;
 
   &__logo {
     font-size: 32px;
@@ -15,12 +15,12 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
 
     &-ul {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 24px;
     }
 
     &-link {
