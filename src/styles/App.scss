@@ -13,7 +13,7 @@
 @use "./components/header";
 @use "./components/main";
 @use "./components/sidebar";
-@use "PostPublication.scss";
+@use "./components/post-publication";
 
 // Шрифт
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
