@@ -1,37 +1,43 @@
 @use "../globals/colors" as *;
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  &__logo {
-    font-size: 32px;
-    font-weight: 500;
-    text-decoration: none;
-    color: $color-black;
-  }
-
-  &__list {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-right: 30px;
+    border-right: $color-gray solid 1px;
+    height: 100vh;
 
-    &-ul {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    &__logo {
+        padding-top: 5px;
+        font-size: 32px;
+        font-weight: 500;
+        text-decoration: none;
+        color: $color-black;
     }
 
-    &-link {
-      text-decoration: none;
-      color: $color-black;
-    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        height: 100%;
+        padding-bottom: 30px;
 
-    &-li {
-      display: flex;
-      gap: 8px;
-      font-size: 24px;
+        &-ul {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &-link {
+            text-decoration: none;
+            color: $color-black;
+        }
+
+        &-li {
+            display: flex;
+            gap: 20px;
+            font-size: 24px;
+        }
     }
-  }
 }
