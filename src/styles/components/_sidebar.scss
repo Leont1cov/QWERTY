@@ -1,43 +1,52 @@
 @use "../globals/colors" as *;
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 30px;
+  border-right: $color-gray-light solid 1px;
+  height: 100vh;
+
+  &__logo {
+    padding-left: 8px;
+    padding-top: 5px;
+    font-size: 32px;
+    font-weight: 500;
+    text-decoration: none;
+    color: $color-black;
+  }
+
+  &__list {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding-right: 30px;
-    border-right: $color-gray-light solid 1px;
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 30px;
 
-    &__logo {
-        padding-top: 5px;
-        font-size: 32px;
-        font-weight: 500;
-        text-decoration: none;
-        color: $color-black;
+    &-ul {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
-    &__list {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        height: 100%;
-        padding-bottom: 30px;
+    &-link {
+      text-decoration: none;
+      color: $color-black;
+      width: max-content;
+      transition: background-color 0.2s ease, border-radius 0.2s ease;
 
-        &-ul {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        &-link {
-            text-decoration: none;
-            color: $color-black;
-        }
-
-        &-li {
-            display: flex;
-            gap: 20px;
-            font-size: 24px;
-        }
+      &:hover {
+        background-color: $color-gray-light;
+        border-radius: 24px;
+      }
     }
+
+    &-li {
+      display: flex;
+      gap: 20px;
+      padding: 8px 16px;
+      font-size: 24px;
+    }
+  }
 }

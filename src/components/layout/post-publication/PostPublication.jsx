@@ -7,7 +7,6 @@ export default function PostPublication({ profileLink }) {
             <a href={profileLink} className="post__picture">
                 <ProfilePicture />
             </a>
-
             <div className="post__right">
                 <textarea
                     className="post__right--textarea"
@@ -18,7 +17,7 @@ export default function PostPublication({ profileLink }) {
 
                 <div className="post__bottom">
                     <i
-                        class="post__bottom--imageBtn fa fa-picture-o"
+                        className="post__bottom--imageBtn fa fa-picture-o"
                         aria-hidden="true"
                     ></i>
 
