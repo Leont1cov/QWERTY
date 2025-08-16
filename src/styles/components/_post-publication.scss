@@ -1,54 +1,52 @@
 @use "../globals/colors" as *;
 
 .post {
-  display: flex;
-  border: $color-gray solid 1px;
-  border-left: none;
-  border-right: none;
-  padding: 10px;
-  min-width: 520px;
-
-  &__picture {
-    padding-right: 10px;
-
-    &--profilePicture {
-      height: 40px;
-      width: 40px;
-      background-color: $color-gray;
-      border-radius: 20px;
-    }
-  }
-
-  //! Название Не по БЭМу
-  &Bottom {
     display: flex;
-    align-items: center;
+    border: $color-gray-light solid 1px;
+    border-left: none;
+    border-right: none;
+    padding: 10px;
+    min-width: 520px;
 
-    &__imageBtn {
-      color: $color-blue-accent;
-      transition: color 0.2s ease;
-      cursor: pointer;
+    &__picture {
+        padding-right: 10px;
 
-      &:hover {
-        color: $color-black-hover;
-      }
+        &--profilePicture {
+            height: 40px;
+            width: 40px;
+            background-color: $color-gray-light;
+            border-radius: 20px;
+        }
     }
-  }
 
-  //! Название Не по БЭМу
-  &Right {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    &__bottom {
+        display: flex;
+        align-items: center;
 
-    &__textarea {
-      font-family: "Libre Franklin", sans-serif;
-      border: none;
-      resize: none;
-      outline: none;
-      font-size: 1.1rem;
-      padding-top: 10px;
-      margin-bottom: 5px;
+        &--imageBtn {
+            color: $color-blue-accent;
+            transition: color 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+                color: $color-black-hover;
+            }
+        }
     }
-  }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        &--textarea {
+            font-family: "Libre Franklin", sans-serif;
+            border: none;
+            resize: none;
+            outline: none;
+            font-size: 1.1rem;
+            padding-top: 10px;
+            margin-bottom: 5px;
+        }
+    }
 }
