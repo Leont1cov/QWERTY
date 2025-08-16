@@ -1,15 +1,11 @@
 import Button from "../../ui/Button"
-export default function PostPublication({ profileLink, profilePicture }) {
+import ProfilePicture from "../../ui/ProfilePicture"
+
+export default function PostPublication({ profileLink }) {
     return (
         <div className="post">
             <a href={profileLink} className="post__picture">
-                {/* <img
-                    src={profilePicture}
-                    alt="Profile picture"
-                    className="post__picture--profilePicture"
-                /> */}
-                <div className="post__picture--profilePicture"></div>
-                {/* ^^^^^ Change this to the img element when profile picture data will be connected to the component */}
+                <ProfilePicture />
             </a>
 
             <div className="post__right">
