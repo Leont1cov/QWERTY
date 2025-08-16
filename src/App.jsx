@@ -1,16 +1,5 @@
-import Header from "./components/layout/header/Header"
-import Sidebar from "./components/layout/sidebar/Sidebar"
-import PostPublication from "./components/layout/post-publication/PostPublication"
+import Home from "./pages/home";
 
 export default function App() {
-    return (
-        <main className="main">
-            <Sidebar />
-
-            <div className="center">
-                <Header />
-                <PostPublication />
-            </div>
-        </main>
-    )
+  return <Home />;
 }
