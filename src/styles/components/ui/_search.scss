@@ -1,0 +1,29 @@
+@use "../../globals/colors" as *;
+
+.search {
+  display: flex;
+  position: relative;
+  padding: 16px;
+
+  &__input {
+    border: none;
+    outline: none;
+    border: 1px solid $color-gray-lighter;
+    width: 530px;
+    padding: 13px 16px 10px 32px;
+    border-radius: 32px;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $color-blue-accent;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 30px;
+    left: 26px;
+    font-size: 14px;
+    color: $color-gray-dark;
+  }
+}

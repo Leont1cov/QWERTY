@@ -8,15 +8,19 @@
 
 //ui
 @use "./components/ui/button";
+@use "./components/ui/profile-picture";
+@use "./components/ui/search";
 
 // components
+// Home page
 @use "./components/header";
 @use "./components/main";
 @use "./components/sidebar";
 @use "./components/post-publication";
 @use "./components/info-panel";
 @use "./components/post";
-@use "./components/ui/profile-picture";
+
+//Explore page
 
 // Шрифт
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
