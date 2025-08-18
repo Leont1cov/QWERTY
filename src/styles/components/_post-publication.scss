@@ -1,6 +1,6 @@
 @use "../globals/colors" as *;
 
-.post {
+.postPublication {
     display: flex;
     border: $color-gray-light solid 1px;
     border-left: none;
@@ -10,13 +10,6 @@
 
     &__picture {
         padding-right: 10px;
-
-        &--profilePicture {
-            height: 40px;
-            width: 40px;
-            background-color: $color-gray-light;
-            border-radius: 20px;
-        }
     }
 
     &__bottom {

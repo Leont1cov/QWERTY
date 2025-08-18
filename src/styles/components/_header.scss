@@ -5,6 +5,7 @@
   @include flexProps;
 
   &__tab {
+    width: 270px;
     padding: 16px 16px;
     border: none;
     cursor: pointer;
@@ -13,10 +14,11 @@
     font-size: 16px;
     font-weight: 500;
     color: $color-gray-dark;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, background-color 0.2s ease;
 
     &:hover {
       color: $color-gray-darker;
+      background-color: $color-gray-light;
     }
 
     &-active {
