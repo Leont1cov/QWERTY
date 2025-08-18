@@ -1,23 +1,23 @@
 import Button from "../../ui/Button"
 import ProfilePicture from "../../ui/ProfilePicture"
 
-export default function PostPublication({ profileLink }) {
+export default function PostPublication({ profilePic, profileLink }) {
     return (
-        <div className="post">
-            <a href={profileLink} className="post__picture">
-                <ProfilePicture />
+        <div className="postPublication">
+            <a href={profileLink} className="postPublication__picture">
+                <ProfilePicture profilePicture={profilePic} />
             </a>
-            <div className="post__right">
+            <div className="postPublication__right">
                 <textarea
-                    className="post__right--textarea"
+                    className="postPublication__right--textarea"
                     name="input"
                     id="input"
                     placeholder="What's happening?"
                 ></textarea>
 
-                <div className="post__bottom">
+                <div className="postPublication__bottom">
                     <i
-                        className="post__bottom--imageBtn fa fa-picture-o"
+                        className="postPublication__bottom--imageBtn fa fa-picture-o"
                         aria-hidden="true"
                     ></i>
 
