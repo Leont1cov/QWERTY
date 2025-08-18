@@ -2,7 +2,10 @@
 
 .infoPanel {
     width: 300px;
-    height: 100vh;
+    height: 100%;
     background-color: $color-gray-light;
     border-left: $color-gray-light solid 1px;
+    position: sticky;
+    top: 0;
+    left: 0;
 }

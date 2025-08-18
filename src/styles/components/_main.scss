@@ -3,4 +3,10 @@
     justify-content: center;
     align-items: start;
     gap: 0px;
+    height: 100vh;
+    overflow: auto;
+
+    &__center {
+        max-width: 540px;
+    }
 }
