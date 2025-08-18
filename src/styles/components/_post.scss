@@ -1,0 +1,80 @@
+@use "../globals/colors" as *;
+
+.post {
+    display: flex;
+    padding: 10px;
+    border-bottom: $color-gray-light solid 1px;
+    transition: background-color ease-in 0.2s;
+    cursor: pointer;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        background-color: $color-gray-light;
+    }
+
+    &__info {
+        width: 100%;
+        padding-left: 10px;
+
+        &--upperContainer {
+            display: flex;
+            gap: 5px;
+
+            &--username {
+                font-weight: 600;
+            }
+        }
+
+        &--content {
+            padding-top: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            &--image {
+                border-radius: 10px;
+                width: 100%;
+            }
+        }
+
+        &--bottomContainer {
+            padding-top: 10px;
+            display: flex;
+
+            &--stats {
+                display: flex;
+                gap: 50px;
+
+                &--comments,
+                &--reposts,
+                &--likes {
+                    width: 50px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    color: $color-black;
+                    transition: color ease-in 0.2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color-blue-accent;
+                    }
+                }
+            }
+
+            &--bookmark {
+                margin-left: auto;
+                color: $color-black;
+                transition: color ease-in 0.2s;
+                cursor: pointer;
+
+                &:hover {
+                    color: $color-blue-accent;
+                }
+            }
+        }
+    }
+}
