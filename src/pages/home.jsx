@@ -6,15 +6,13 @@ import PostPublication from "../components/layout/post-publication/PostPublicati
 import Post from "../components/layout/post/Post"
 import InfoPanel from "../components/layout/info-panel/InfoPanel"
 
-import postsForYouData from "../data/postsForYouData"
-import postsFollowingData from "../data/postsFollowingData"
-
-import profilePicture from "../assets/profilePicture1.JPG"
+import postsData from "../data/postsData"
+import userData from "../data/userData"
 
 export default function Home() {
     const [currentSection, setCurrentSection] = useState("For you")
 
-    const postsForYou = postsForYouData.map((post, index) => (
+    const postsForYou = postsData.map((post, index) => (
         <Post
             key={index}
             profilePic={post.profilePic}
@@ -23,6 +21,9 @@ export default function Home() {
             date={post.date}
             text={post.text}
             image={post.image}
+            image2={post.image2}
+            image3={post.image3}
+            image4={post.image4}
             commentsNum={post.commentsNum}
             repostsNum={post.repostsNum}
             likesNum={post.likesNum}
@@ -31,22 +32,34 @@ export default function Home() {
         />
     ))
 
-    const postsFollowing = postsFollowingData.map((post, index) => (
-        <Post
-            key={index}
-            profilePic={post.profilePic}
-            username={post.username}
-            tag={post.tag}
-            date={post.date}
-            text={post.text}
-            image={post.image}
-            commentsNum={post.commentsNum}
-            repostsNum={post.repostsNum}
-            likesNum={post.likesNum}
-            liked={post.liked}
-            bookmarked={post.bookmarked}
-        />
-    ))
+    const postsFollowing = postsData.map((post, index) => {
+        return userData.followings.map((following) => {
+            if (
+                following.username === post.username &&
+                following.tag === post.tag
+            ) {
+                return (
+                    <Post
+                        key={index}
+                        profilePic={post.profilePic}
+                        username={post.username}
+                        tag={post.tag}
+                        date={post.date}
+                        text={post.text}
+                        image={post.image}
+                        image2={post.image2}
+                        image3={post.image3}
+                        image4={post.image4}
+                        commentsNum={post.commentsNum}
+                        repostsNum={post.repostsNum}
+                        likesNum={post.likesNum}
+                        liked={post.liked}
+                        bookmarked={post.bookmarked}
+                    />
+                )
+            }
+        })
+    })
 
     return (
         <main className="main">
@@ -58,7 +71,7 @@ export default function Home() {
                     setCurrentSection={setCurrentSection}
                 />
                 <PostPublication
-                    profilePic={profilePicture}
+                    profilePic={userData.profile.profilePic}
                     profileLink={"#"}
                 />
 
