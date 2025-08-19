@@ -1,0 +1,14 @@
+@use "../../globals/colors" as *;
+
+.saveLater {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 32px 64px;
+
+  &__subtitle {
+    max-width: 352px;
+    font-size: 16px;
+    color: $color-gray-dark;
+  }
+}
