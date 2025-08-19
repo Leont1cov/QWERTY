@@ -18,7 +18,10 @@ export default function Sidebar() {
             <SidebarItem iconName={"fa-search"} title={"Explore"} />
           </Link>
 
-          <SidebarItem iconName={"fa-star-o"} title={"Bookmarks"} />
+          <Link to={"/bookmarks"}>
+            <SidebarItem iconName={"fa-star-o"} title={"Bookmarks"} />
+          </Link>
+
           <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
         </ul>
         <Button
