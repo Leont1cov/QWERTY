@@ -1,5 +1,6 @@
-import Button from "../../ui/Button"
-import SidebarItem from "./SidebarItem"
+import { Link } from "react-router-dom";
+import Button from "../../ui/Button";
+import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
   return (
@@ -10,8 +11,13 @@ export default function Sidebar() {
 
       <div className="sidebar__list">
         <ul className="sidebar__list-ul">
-          <SidebarItem iconName={"fa-home"} title={"Home"} />
-          <SidebarItem iconName={"fa-search"} title={"Explore"} />
+          <Link to={"/"}>
+            <SidebarItem iconName={"fa-home"} title={"Home"} />
+          </Link>
+          <Link to={"/explore"}>
+            <SidebarItem iconName={"fa-search"} title={"Explore"} />
+          </Link>
+
           <SidebarItem iconName={"fa-star-o"} title={"Bookmarks"} />
           <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
         </ul>
@@ -22,5 +28,5 @@ export default function Sidebar() {
         />
       </div>
     </div>
-  )
+  );
 }
