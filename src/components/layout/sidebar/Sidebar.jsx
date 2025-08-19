@@ -1,7 +1,13 @@
 import Button from "../../ui/Button"
 import SidebarItem from "./SidebarItem"
+import ProfilePicture from "../../ui/ProfilePicture"
 
-export default function Sidebar() {
+export default function Sidebar({
+    profileUsername,
+    profileTag,
+    profilePic,
+    profileLink,
+}) {
     return (
         <div className="sidebar">
             <a className="sidebar__logo" href="#">
@@ -18,11 +24,30 @@ export default function Sidebar() {
                     />
                     <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
                 </ul>
-                <Button
-                    title={"Post"}
-                    buttonClass="button"
-                    button__titleClass="button__title"
-                />
+
+                <div className="sidebar__list--bottomContainer">
+                    <Button
+                        title={"Post"}
+                        buttonClass="button"
+                        button__titleClass="button__title"
+                    />
+
+                    <a
+                        href={profileLink}
+                        className="sidebar__list--bottomContainer--profileContainer"
+                    >
+                        <ProfilePicture profilePicture={profilePic} />
+
+                        <div className="sidebar__list--bottomContainer--profileContainer--profileNames">
+                            <span className="sidebar__list--bottomContainer--profileContainer--profileNames--username">
+                                {profileUsername}
+                            </span>
+                            <span className="sidebar__list--bottomContainer--profileContainer--profileNames--tag">
+                                {profileTag}
+                            </span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     )

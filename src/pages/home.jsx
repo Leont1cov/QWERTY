@@ -63,7 +63,12 @@ export default function Home() {
 
     return (
         <main className="main">
-            <Sidebar />
+            <Sidebar
+                profileUsername={userData.profile.username}
+                profileTag={userData.profile.tag}
+                profilePic={userData.profile.profilePic}
+                profileLink={"#"}
+            />
 
             <div className="main__center">
                 <Header
