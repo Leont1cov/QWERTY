@@ -12,7 +12,7 @@ export default function Explore() {
       <Sidebar />
 
       <div className="main__center">
-        <Search />
+        <Search placeholder={"Search"} />
 
         <header className="header">
           <button
