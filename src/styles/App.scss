@@ -8,6 +8,8 @@
 
 //ui
 @use "./components/ui/button";
+@use "./components/ui/profile-picture";
+@use "./components/ui/media";
 
 // components
 @use "./components/header";
@@ -16,7 +18,6 @@
 @use "./components/post-publication";
 @use "./components/info-panel";
 @use "./components/post";
-@use "./components/ui/profile-picture";
 
 // Шрифт
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");

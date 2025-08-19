@@ -1,4 +1,5 @@
 import ProfilePicture from "../../ui/ProfilePicture"
+import Media from "../../ui/Media"
 
 export default function Post({
     profilePic,
@@ -25,25 +26,25 @@ export default function Post({
         ) {
             return (
                 <div className="post__info--content--fourImageContainers">
-                    <img
+                    <Media
                         src={image}
                         alt="Image"
                         className="post__info--content--fourImageContainers--image1"
                     />
 
-                    <img
+                    <Media
                         src={image2}
                         alt="Image 2"
                         className="post__info--content--fourImageContainers--image2"
                     />
 
-                    <img
+                    <Media
                         src={image3}
                         alt="Image 3"
                         className="post__info--content--fourImageContainers--image3"
                     />
 
-                    <img
+                    <Media
                         src={image4}
                         alt="Image 4"
                         className="post__info--content--fourImageContainers--image4"
@@ -58,7 +59,7 @@ export default function Post({
             return (
                 <div className="post__info--content--threeImageContainers">
                     <div className="post__info--content--threeImageContainers--left">
-                        <img
+                        <Media
                             src={image}
                             alt="Image"
                             className="post__info--content--threeImageContainers--left--image"
@@ -66,13 +67,13 @@ export default function Post({
                     </div>
 
                     <div className="post__info--content--threeImageContainers--right">
-                        <img
+                        <Media
                             src={image2}
                             alt="Image 2"
                             className="post__info--content--threeImageContainers--right--image"
                         />
 
-                        <img
+                        <Media
                             src={image3}
                             alt="Image 3"
                             className="post__info--content--threeImageContainers--right--image"
@@ -83,13 +84,13 @@ export default function Post({
         } else if (image !== undefined && image2 !== undefined) {
             return (
                 <div className="post__info--content--twoImageContainers">
-                    <img
+                    <Media
                         src={image}
                         alt="Image"
                         className="post__info--content--twoImageContainers--image"
                     />
 
-                    <img
+                    <Media
                         src={image2}
                         alt="Image 2"
                         className="post__info--content--twoImageContainers--image"
@@ -98,7 +99,7 @@ export default function Post({
             )
         } else {
             return (
-                <img
+                <Media
                     src={image}
                     alt="Image"
                     className="post__info--content--image"
