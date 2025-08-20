@@ -7,34 +7,23 @@ import weatherType from "../../../data/weatherType.js"
 import cities from "../../../data/cities.js"
 
 export default function InfoPanel() {
-    const [firstCityWeather, setFirstCityWeather] = useState(null)
-    const [secondCityWeather, setSecondCityWeather] = useState(null)
-    const [thirdCityWeather, setThirdCityWeather] = useState(null)
-    const [fourthCityWeather, setFourthCityWeather] = useState(null)
-    const [fifthCityWeather, setFifthCityWeather] = useState(null)
-    const [sixthCityWeather, setSixthCityWeather] = useState(null)
-    const [seventhCityWeather, setSeventhCityWeather] = useState(null)
-
-    const [firstCityName, setFirstCityName] = useState("")
-    const [secondCityName, setSecondCityName] = useState("")
-    const [thirdCityName, setThirdCityName] = useState("")
-    const [fourthCityName, setFourthCityName] = useState("")
-    const [fifthCityName, setFifthCityName] = useState("")
-    const [sixthCityName, setSixthCityName] = useState("")
-    const [seventhCityName, setSeventhCityName] = useState("")
+    const [cityWeathers, setCityWeathers] = useState(Array(7).fill(null))
+    const [cityNames, setCityNames] = useState(Array(7).fill(""))
 
     async function getWeather() {
         const randomCities = getRandomCities()
 
         const [c1, c2, c3, c4, c5, c6, c7] = randomCities
 
-        setFirstCityName(c1.name)
-        setSecondCityName(c2.name)
-        setThirdCityName(c3.name)
-        setFourthCityName(c4.name)
-        setFifthCityName(c5.name)
-        setSixthCityName(c6.name)
-        setSeventhCityName(c7.name)
+        setCityNames([
+            c1.name,
+            c2.name,
+            c3.name,
+            c4.name,
+            c5.name,
+            c6.name,
+            c7.name,
+        ])
 
         const firstCity = await fetchCurrentWeather(
             c1.coordinates.lat,
@@ -65,13 +54,15 @@ export default function InfoPanel() {
             c7.coordinates.lon
         )
 
-        setFirstCityWeather(firstCity)
-        setSecondCityWeather(secondCity)
-        setThirdCityWeather(thirdCity)
-        setFourthCityWeather(fourthCity)
-        setFifthCityWeather(fifthCity)
-        setSixthCityWeather(sixthCity)
-        setSeventhCityWeather(seventhCity)
+        setCityWeathers([
+            firstCity,
+            secondCity,
+            thirdCity,
+            fourthCity,
+            fifthCity,
+            sixthCity,
+            seventhCity,
+        ])
     }
 
     function getRandomCities() {
@@ -91,111 +82,30 @@ export default function InfoPanel() {
         return () => clearInterval(interval)
     }, [])
 
-    const firstCityPath =
-        firstCityWeather === null
+    function cityPaths(num) {
+        return cityWeathers[num] === null
             ? null
-            : firstCityWeather.current.condition.text
-    const secondCityPath =
-        secondCityWeather === null
-            ? null
-            : secondCityWeather.current.condition.text
-    const thirdCityPath =
-        thirdCityWeather === null
-            ? null
-            : thirdCityWeather.current.condition.text
-    const fourthCityPath =
-        fourthCityWeather === null
-            ? null
-            : fourthCityWeather.current.condition.text
-    const fifthCityPath =
-        fifthCityWeather === null
-            ? null
-            : fifthCityWeather.current.condition.text
-    const sixthCityPath =
-        sixthCityWeather === null
-            ? null
-            : sixthCityWeather.current.condition.text
-    const seventhCityPath =
-        seventhCityWeather === null
-            ? null
-            : seventhCityWeather.current.condition.text
+            : cityWeathers[num].current.condition.text
+    }
+
+    function cityDegrees(num) {
+        return cityWeathers[num] === null
+            ? "0"
+            : cityWeathers[num].current.temp_c
+    }
+
+    const weatherForecasts = cityNames.map((city, i) => (
+        <WeatherForecast
+            key={i}
+            cityName={cityNames[i]}
+            weatherIcon={weatherType(cityWeathers[i], cityPaths(i))}
+            degrees={cityDegrees(i)}
+        />
+    ))
 
     return (
         <div className="infoPanel">
-            <div className="infoPanel__weather">
-                <WeatherForecast
-                    cityName={firstCityName}
-                    weatherIcon={weatherType(firstCityWeather, firstCityPath)}
-                    degrees={
-                        firstCityWeather === null
-                            ? "0"
-                            : firstCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={secondCityName}
-                    weatherIcon={weatherType(secondCityWeather, secondCityPath)}
-                    degrees={
-                        secondCityWeather === null
-                            ? "0"
-                            : secondCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={thirdCityName}
-                    weatherIcon={weatherType(thirdCityWeather, thirdCityPath)}
-                    degrees={
-                        thirdCityWeather === null
-                            ? "0"
-                            : thirdCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={fourthCityName}
-                    weatherIcon={weatherType(fourthCityWeather, fourthCityPath)}
-                    degrees={
-                        fourthCityWeather === null
-                            ? "0"
-                            : fourthCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={fifthCityName}
-                    weatherIcon={weatherType(fifthCityWeather, fifthCityPath)}
-                    degrees={
-                        fifthCityWeather === null
-                            ? "0"
-                            : fifthCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={sixthCityName}
-                    weatherIcon={weatherType(sixthCityWeather, sixthCityPath)}
-                    degrees={
-                        sixthCityWeather === null
-                            ? "0"
-                            : sixthCityWeather.current.temp_c
-                    }
-                />
-
-                <WeatherForecast
-                    cityName={seventhCityName}
-                    weatherIcon={weatherType(
-                        seventhCityWeather,
-                        seventhCityPath
-                    )}
-                    degrees={
-                        seventhCityWeather === null
-                            ? "0"
-                            : seventhCityWeather.current.temp_c
-                    }
-                />
-            </div>
+            <div className="infoPanel__weather">{weatherForecasts}</div>
 
             <div className="infoPanel__stocks"></div>
         </div>
