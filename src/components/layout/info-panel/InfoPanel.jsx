@@ -12,23 +12,29 @@ export default function InfoPanel() {
     const [thirdCityWeather, setThirdCityWeather] = useState(null)
     const [fourthCityWeather, setFourthCityWeather] = useState(null)
     const [fifthCityWeather, setFifthCityWeather] = useState(null)
+    const [sixthCityWeather, setSixthCityWeather] = useState(null)
+    const [seventhCityWeather, setSeventhCityWeather] = useState(null)
 
     const [firstCityName, setFirstCityName] = useState("")
     const [secondCityName, setSecondCityName] = useState("")
     const [thirdCityName, setThirdCityName] = useState("")
     const [fourthCityName, setFourthCityName] = useState("")
     const [fifthCityName, setFifthCityName] = useState("")
+    const [sixthCityName, setSixthCityName] = useState("")
+    const [seventhCityName, setSeventhCityName] = useState("")
 
     async function getWeather() {
         const randomCities = getRandomCities()
 
-        const [c1, c2, c3, c4, c5] = randomCities
+        const [c1, c2, c3, c4, c5, c6, c7] = randomCities
 
         setFirstCityName(c1.name)
         setSecondCityName(c2.name)
         setThirdCityName(c3.name)
         setFourthCityName(c4.name)
         setFifthCityName(c5.name)
+        setSixthCityName(c6.name)
+        setSeventhCityName(c7.name)
 
         const firstCity = await fetchCurrentWeather(
             c1.coordinates.lat,
@@ -50,18 +56,28 @@ export default function InfoPanel() {
             c5.coordinates.lat,
             c5.coordinates.lon
         )
+        const sixthCity = await fetchCurrentWeather(
+            c6.coordinates.lat,
+            c6.coordinates.lon
+        )
+        const seventhCity = await fetchCurrentWeather(
+            c7.coordinates.lat,
+            c7.coordinates.lon
+        )
 
         setFirstCityWeather(firstCity)
         setSecondCityWeather(secondCity)
         setThirdCityWeather(thirdCity)
         setFourthCityWeather(fourthCity)
         setFifthCityWeather(fifthCity)
+        setSixthCityWeather(sixthCity)
+        setSeventhCityWeather(seventhCity)
     }
 
     function getRandomCities() {
-        const shuffled = [...cities].sort(() => 0.5 - Math.random())
+        const shuffled = [...cities].sort(() => 0.7 - Math.random())
 
-        return shuffled.slice(0, 5).map((city) => ({
+        return shuffled.slice(0, 7).map((city) => ({
             name: city.city,
             coordinates: city.coordinates,
         }))
@@ -70,7 +86,7 @@ export default function InfoPanel() {
     useEffect(() => {
         getWeather()
 
-        const interval = setInterval(getWeather, 10000)
+        const interval = setInterval(getWeather, 15000)
 
         return () => clearInterval(interval)
     }, [])
@@ -95,6 +111,14 @@ export default function InfoPanel() {
         fifthCityWeather === null
             ? null
             : fifthCityWeather.current.condition.text
+    const sixthCityPath =
+        sixthCityWeather === null
+            ? null
+            : sixthCityWeather.current.condition.text
+    const seventhCityPath =
+        seventhCityWeather === null
+            ? null
+            : seventhCityWeather.current.condition.text
 
     return (
         <div className="infoPanel">
@@ -146,6 +170,29 @@ export default function InfoPanel() {
                         fifthCityWeather === null
                             ? "0"
                             : fifthCityWeather.current.temp_c
+                    }
+                />
+
+                <WeatherForecast
+                    cityName={sixthCityName}
+                    weatherIcon={weatherType(sixthCityWeather, sixthCityPath)}
+                    degrees={
+                        sixthCityWeather === null
+                            ? "0"
+                            : sixthCityWeather.current.temp_c
+                    }
+                />
+
+                <WeatherForecast
+                    cityName={seventhCityName}
+                    weatherIcon={weatherType(
+                        seventhCityWeather,
+                        seventhCityPath
+                    )}
+                    degrees={
+                        seventhCityWeather === null
+                            ? "0"
+                            : seventhCityWeather.current.temp_c
                     }
                 />
             </div>
