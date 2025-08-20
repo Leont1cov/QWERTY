@@ -1,0 +1,26 @@
+@use "../../globals/colors" as *;
+
+.weatherForecast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: $color-gray-light solid 1px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &__cityName {
+        width: 100%;
+    }
+
+    &__weatherIcon {
+        width: 30px;
+    }
+
+    &__degrees {
+        width: 100%;
+        text-align: right;
+    }
+}
