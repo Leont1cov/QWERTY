@@ -18,7 +18,10 @@ export default function Media({ src, alt, className }) {
                             alt={alt}
                             className="mediaViewer__image"
                         />
-                        <div className="mediaViewer__blackScreen"></div>
+                        <div
+                            className="mediaViewer__blackScreen"
+                            onClick={() => setMediaViewer((prev) => !prev)}
+                        />
                     </div>
                     <img src={src} alt={alt} className={className} />
                 </>
