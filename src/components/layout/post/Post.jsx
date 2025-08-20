@@ -151,7 +151,7 @@ export default function Post({
                     <div className="post__info--bottomContainer--stats">
                         <div className="post__info--bottomContainer--stats--comments">
                             <i
-                                class="post__info--bottomContainer--stats--comments--icon fa fa-comment-o"
+                                className="post__info--bottomContainer--stats--comments--icon fa fa-comment-o"
                                 aria-hidden="true"
                             ></i>
                             <span className="post__info--bottomContainer--stats--comments--num">
@@ -161,7 +161,7 @@ export default function Post({
 
                         <div className="post__info--bottomContainer--stats--reposts">
                             <i
-                                class="post__info--bottomContainer--stats--reposts--icon fa fa-retweet"
+                                className="post__info--bottomContainer--stats--reposts--icon fa fa-retweet"
                                 aria-hidden="true"
                             ></i>
                             <span className="post__info--bottomContainer--stats--reposts--num">
@@ -172,12 +172,12 @@ export default function Post({
                         <div className="post__info--bottomContainer--stats--likes">
                             {liked ? (
                                 <i
-                                    class="post__info--bottomContainer--stats--likes--icon fa fa-heart"
+                                    className="post__info--bottomContainer--stats--likes--icon fa fa-heart"
                                     aria-hidden="true"
                                 ></i>
                             ) : (
                                 <i
-                                    class="post__info--bottomContainer--stats--likes--icon fa fa-heart-o"
+                                    className="post__info--bottomContainer--stats--likes--icon fa fa-heart-o"
                                     aria-hidden="true"
                                 ></i>
                             )}
@@ -189,12 +189,12 @@ export default function Post({
 
                     {bookmarked ? (
                         <i
-                            class="post__info--bottomContainer--bookmark fa fa-bookmark"
+                            className="post__info--bottomContainer--bookmark fa fa-bookmark"
                             aria-hidden="true"
                         ></i>
                     ) : (
                         <i
-                            class="post__info--bottomContainer--bookmark fa fa-bookmark-o"
+                            className="post__info--bottomContainer--bookmark fa fa-bookmark-o"
                             aria-hidden="true"
                         ></i>
                     )}
