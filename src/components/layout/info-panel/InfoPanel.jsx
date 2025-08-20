@@ -13,56 +13,15 @@ export default function InfoPanel() {
     async function getWeather() {
         const randomCities = getRandomCities()
 
-        const [c1, c2, c3, c4, c5, c6, c7] = randomCities
+        setCityNames(randomCities.map((city) => city.name))
 
-        setCityNames([
-            c1.name,
-            c2.name,
-            c3.name,
-            c4.name,
-            c5.name,
-            c6.name,
-            c7.name,
-        ])
-
-        const firstCity = await fetchCurrentWeather(
-            c1.coordinates.lat,
-            c1.coordinates.lon
-        )
-        const secondCity = await fetchCurrentWeather(
-            c2.coordinates.lat,
-            c2.coordinates.lon
-        )
-        const thirdCity = await fetchCurrentWeather(
-            c3.coordinates.lat,
-            c3.coordinates.lon
-        )
-        const fourthCity = await fetchCurrentWeather(
-            c4.coordinates.lat,
-            c4.coordinates.lon
-        )
-        const fifthCity = await fetchCurrentWeather(
-            c5.coordinates.lat,
-            c5.coordinates.lon
-        )
-        const sixthCity = await fetchCurrentWeather(
-            c6.coordinates.lat,
-            c6.coordinates.lon
-        )
-        const seventhCity = await fetchCurrentWeather(
-            c7.coordinates.lat,
-            c7.coordinates.lon
+        const weatherData = await Promise.all(
+            randomCities.map((city) =>
+                fetchCurrentWeather(city.coordinates.lat, city.coordinates.lon)
+            )
         )
 
-        setCityWeathers([
-            firstCity,
-            secondCity,
-            thirdCity,
-            fourthCity,
-            fifthCity,
-            sixthCity,
-            seventhCity,
-        ])
+        setCityWeathers(weatherData)
     }
 
     function getRandomCities() {
