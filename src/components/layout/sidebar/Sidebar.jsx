@@ -22,7 +22,9 @@ export default function Sidebar() {
             <SidebarItem iconName={"fa-star-o"} title={"Bookmarks"} />
           </Link>
 
-          <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
+          <Link to={"/profile"}>
+            <SidebarItem iconName={"fa-user-o"} title={"Profile"} />
+          </Link>
         </ul>
         <Button
           title={"Post"}

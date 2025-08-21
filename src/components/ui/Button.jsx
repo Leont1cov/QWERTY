@@ -3,5 +3,5 @@ export default function Button({ title, buttonClass, button__titleClass }) {
     <button className={buttonClass}>
       <span className={button__titleClass}>{title}</span>
     </button>
-  )
+  );
 }
