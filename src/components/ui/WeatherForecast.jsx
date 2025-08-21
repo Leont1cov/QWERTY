@@ -1,6 +1,6 @@
 export default function WeatherForecast({ cityName, weatherIcon, degrees }) {
     return (
-        <div className={`weatherForecast`}>
+        <div className="weatherForecast">
             <span className="weatherForecast__cityName">{cityName}</span>
             <img
                 src={weatherIcon}
