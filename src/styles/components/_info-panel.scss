@@ -1,8 +1,8 @@
 @use "../globals/colors" as *;
 
 .infoPanel {
-    width: 300px;
-    height: 90%;
+    min-width: 350px;
+    height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -13,6 +13,7 @@
     position: sticky;
     top: 0;
     left: 0;
+    box-sizing: border-box;
 
     &__weather {
         width: 100%;

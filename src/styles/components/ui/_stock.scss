@@ -1,0 +1,48 @@
+@use "../../globals/colors" as *;
+
+.stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px;
+    border-bottom: $color-gray-light solid 1px;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &__namesContainer {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.9rem;
+        width: 170px;
+
+        &--stockName {
+            padding: 3px 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: $color-gray-dark;
+            color: $color-white;
+            border-radius: 4px;
+        }
+    }
+
+    &__differencePercentageUp {
+        padding: 3px 5px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background-color: $color-green-light;
+        color: $color-green;
+        border-radius: 4px;
+    }
+
+    &__differencePercentageDown {
+        padding: 3px 5px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background-color: $color-red-light;
+        color: $color-red;
+        border-radius: 4px;
+    }
+}
