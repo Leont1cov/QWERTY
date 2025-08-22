@@ -9,7 +9,7 @@ export default function Media({ src, alt, className }) {
                 <>
                     <div className="mediaViewer">
                         <i
-                            class="mediaViewer__close fa fa-times"
+                            className="mediaViewer__close fa fa-times"
                             aria-hidden="true"
                             onClick={() => setMediaViewer((prev) => !prev)}
                         ></i>
