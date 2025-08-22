@@ -1,19 +1,5 @@
-import profilePicture from "../assets/profilePicture1.JPG"
-import profilePicture2 from "../assets/profilePicture2.JPG"
+import usersData from "./usersData"
 
-const userData = {
-    profile: {
-        profilePic: profilePicture,
-        username: "John Smith",
-        tag: "@johnsmith",
-    },
-    followings: [
-        {
-            profilePic: profilePicture2,
-            username: "Michael Brown",
-            tag: "@michaelbrown",
-        },
-    ],
-}
+const userData = { ...usersData.john_smith }
 
 export default userData

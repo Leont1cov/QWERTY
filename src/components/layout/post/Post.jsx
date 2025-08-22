@@ -2,6 +2,7 @@ import ProfilePicture from "../../ui/ProfilePicture"
 import Media from "../../ui/Media"
 
 export default function Post({
+    user,
     profilePic,
     username,
     tag,
@@ -11,11 +12,10 @@ export default function Post({
     image2,
     image3,
     image4,
-    commentsNum,
-    repostsNum,
-    likesNum,
-    liked,
-    bookmarked,
+    comments,
+    reposts,
+    likes,
+    bookmarks,
 }) {
     function timeAgo(from, to = new Date()) {
         const fromDate = new Date(from)
@@ -148,6 +148,16 @@ export default function Post({
         }
     }
 
+    const liked = likes.map((like) =>
+        like.username === user.username && like.tag === user.tag ? true : false
+    )
+
+    const bookmarked = bookmarks.map((bookmark) =>
+        bookmark.username === user.username && bookmark.tag === user.tag
+            ? true
+            : false
+    )
+
     return (
         <div className="post">
             <ProfilePicture profilePicture={profilePic} />
@@ -176,7 +186,7 @@ export default function Post({
                                 aria-hidden="true"
                             ></i>
                             <span className="post__info--bottomContainer--stats--comments--num">
-                                {commentsNum}
+                                {comments.length}
                             </span>
                         </div>
 
@@ -186,12 +196,12 @@ export default function Post({
                                 aria-hidden="true"
                             ></i>
                             <span className="post__info--bottomContainer--stats--reposts--num">
-                                {repostsNum}
+                                {reposts.length}
                             </span>
                         </div>
 
                         <div className="post__info--bottomContainer--stats--likes">
-                            {liked ? (
+                            {liked.includes(true) ? (
                                 <i
                                     className="post__info--bottomContainer--stats--likes--icon fa fa-heart"
                                     aria-hidden="true"
@@ -203,12 +213,12 @@ export default function Post({
                                 ></i>
                             )}
                             <span className="post__info--bottomContainer--stats--likes--num">
-                                {likesNum}
+                                {likes.length}
                             </span>
                         </div>
                     </div>
 
-                    {bookmarked ? (
+                    {bookmarked.includes(true) ? (
                         <i
                             className="post__info--bottomContainer--bookmark fa fa-bookmark"
                             aria-hidden="true"

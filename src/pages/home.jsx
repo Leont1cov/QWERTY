@@ -6,8 +6,9 @@ import PostPublication from "../components/layout/post-publication/PostPublicati
 import Post from "../components/layout/post/Post"
 import InfoPanel from "../components/layout/info-panel/InfoPanel"
 
-import postsData from "../data/postsData"
+import usersFollowingsData from "../data/usersFollowingsData"
 import userData from "../data/userData"
+import postsData from "../data/postsData"
 
 export default function Home() {
     const [currentSection, setCurrentSection] = useState("For you")
@@ -15,46 +16,49 @@ export default function Home() {
     const postsForYou = postsData.map((post, index) => (
         <Post
             key={index}
-            profilePic={post.profilePic}
-            username={post.username}
-            tag={post.tag}
+            user={userData}
+            profilePic={post.account[0].profilePic}
+            username={post.account[0].username}
+            tag={post.account[0].tag}
             date={post.date}
             text={post.text}
             image={post.image}
             image2={post.image2}
             image3={post.image3}
             image4={post.image4}
-            commentsNum={post.commentsNum}
-            repostsNum={post.repostsNum}
-            likesNum={post.likesNum}
-            liked={post.liked}
-            bookmarked={post.bookmarked}
+            comments={post.comments}
+            reposts={post.reposts}
+            likes={post.likes}
+            bookmarks={post.bookmarks}
         />
     ))
 
-    const postsFollowing = postsData.map((post, index) => {
-        return userData.followings.map((following) => {
+    const postsFollowing = postsData.map((post) => {
+        const name = userData.username.toLowerCase().split(" ")
+        const id = `${name[0]}_${name[1]}`
+        const currentUserFollowings = usersFollowingsData[id]
+        return currentUserFollowings.map((following, index) => {
             if (
-                following.username === post.username &&
-                following.tag === post.tag
+                following.username === post.account[0].username &&
+                following.tag === post.account[0].tag
             ) {
                 return (
                     <Post
                         key={index}
-                        profilePic={post.profilePic}
-                        username={post.username}
-                        tag={post.tag}
+                        user={userData}
+                        profilePic={post.account[0].profilePic}
+                        username={post.account[0].username}
+                        tag={post.account[0].tag}
                         date={post.date}
                         text={post.text}
                         image={post.image}
                         image2={post.image2}
                         image3={post.image3}
                         image4={post.image4}
-                        commentsNum={post.commentsNum}
-                        repostsNum={post.repostsNum}
-                        likesNum={post.likesNum}
-                        liked={post.liked}
-                        bookmarked={post.bookmarked}
+                        comments={post.comments}
+                        reposts={post.reposts}
+                        likes={post.likes}
+                        bookmarks={post.bookmarks}
                     />
                 )
             }
@@ -64,9 +68,9 @@ export default function Home() {
     return (
         <main className="main">
             <Sidebar
-                profileUsername={userData.profile.username}
-                profileTag={userData.profile.tag}
-                profilePic={userData.profile.profilePic}
+                profileUsername={userData.username}
+                profileTag={userData.tag}
+                profilePic={userData.profilePic}
                 profileLink={"#"}
             />
 
@@ -76,7 +80,7 @@ export default function Home() {
                     setCurrentSection={setCurrentSection}
                 />
                 <PostPublication
-                    profilePic={userData.profile.profilePic}
+                    profilePic={userData.profilePic}
                     profileLink={"#"}
                 />
 
