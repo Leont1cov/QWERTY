@@ -12,7 +12,7 @@ export default function Sidebar({
     return (
         <div className="sidebar">
             <a className="sidebar__logo" href="#">
-                QWERTY
+                {window.innerWidth <= 767 ? "Q" : "QWERTY"}
             </a>
 
             <div className="sidebar__list">
@@ -27,12 +27,14 @@ export default function Sidebar({
                 </ul>
 
                 <div className="sidebar__list--bottomContainer">
-                    <Button
-                        title={"Post"}
-                        buttonClass="button"
-                        button__titleClass="button__title"
-                        onClick={() => setButtonOn((prev) => !prev)}
-                    />
+                    {window.innerWidth <= 767 ? null : (
+                        <Button
+                            title={"Post"}
+                            buttonClass="button"
+                            button__titleClass="button__title"
+                            onClick={() => setButtonOn((prev) => !prev)}
+                        />
+                    )}
 
                     <a
                         href={profileLink}
@@ -40,14 +42,16 @@ export default function Sidebar({
                     >
                         <ProfilePicture profilePicture={profilePic} />
 
-                        <div className="sidebar__list--bottomContainer--profileContainer--profileNames">
-                            <span className="sidebar__list--bottomContainer--profileContainer--profileNames--username">
-                                {profileUsername}
-                            </span>
-                            <span className="sidebar__list--bottomContainer--profileContainer--profileNames--tag">
-                                {profileTag}
-                            </span>
-                        </div>
+                        {window.innerWidth <= 1023 ? null : (
+                            <div className="sidebar__list--bottomContainer--profileContainer--profileNames">
+                                <span className="sidebar__list--bottomContainer--profileContainer--profileNames--username">
+                                    {profileUsername}
+                                </span>
+                                <span className="sidebar__list--bottomContainer--profileContainer--profileNames--tag">
+                                    {profileTag}
+                                </span>
+                            </div>
+                        )}
                     </a>
                 </div>
             </div>

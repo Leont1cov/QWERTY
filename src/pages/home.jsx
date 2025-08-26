@@ -97,7 +97,7 @@ export default function Home() {
                 {currentSection === "For you" ? postsForYou : postsFollowing}
             </div>
 
-            <InfoPanel />
+            {window.innerWidth <= 1023 ? null : <InfoPanel />}
         </main>
     )
 }

@@ -1,4 +1,5 @@
 @use "../globals/colors" as *;
+@use "../globals/mediaMixins" as *;
 
 .post {
     display: flex;
@@ -6,6 +7,10 @@
     border-bottom: $color-gray-light solid 1px;
     transition: background-color ease-in 0.2s;
     cursor: pointer;
+
+    @include mobile {
+        font-size: 0.8rem;
+    }
 
     &:last-child {
         border-bottom: none;

@@ -10,8 +10,8 @@ import cities from "../../../data/cities.js"
 import companies from "../../../data/companies.js"
 
 export default function InfoPanel() {
-    const cityNumber = 7
-    const stockNumber = 7
+    const cityNumber = window.innerWidth <= 1023 ? 7 : 5
+    const stockNumber = window.innerWidth <= 1023 ? 7 : 5
 
     const [cityWeathers, setCityWeathers] = useState(
         Array(cityNumber).fill(null)
@@ -133,12 +133,11 @@ export default function InfoPanel() {
     function currentPrice(i) {
         return !stockCharts[i]
             ? "0"
-            : `$${
-                  String(
-                      stockCharts[i].Results[stockCharts[i].Results.length - 1]
-                          .Close
-                  ).split(".")[0]
-              }`
+            : `$${String(
+                stockCharts[i].Results[stockCharts[i].Results.length - 1]
+                    .Close
+            ).split(".")[0]
+            }`
     }
 
     function percentageDifference(i) {
