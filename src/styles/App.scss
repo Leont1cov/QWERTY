@@ -2,6 +2,7 @@
 @use "./font-awesome/font-awesome";
 
 // globals
+@use "./globals/mediaMixins";
 @use "./globals/body";
 @use "./globals/mixins";
 @use "./globals/colors";
