@@ -5,6 +5,7 @@ import Sidebar from "../components/layout/sidebar/Sidebar"
 import PostPublication from "../components/layout/post-publication/PostPublication"
 import Post from "../components/layout/post/Post"
 import InfoPanel from "../components/layout/info-panel/InfoPanel"
+import FloatingPostPublication from "../components/ui/FloatingPostPublication"
 
 import usersFollowingsData from "../data/usersFollowingsData"
 import userData from "../data/userData"
@@ -12,6 +13,7 @@ import postsData from "../data/postsData"
 
 export default function Home() {
     const [currentSection, setCurrentSection] = useState("For you")
+    const [buttonOn, setButtonOn] = useState(false)
 
     const postsForYou = postsData.map((post, index) => (
         <Post
@@ -67,11 +69,19 @@ export default function Home() {
 
     return (
         <main className="main">
+            {buttonOn ? (
+                <FloatingPostPublication
+                    profilePic={userData.profilePic}
+                    profileLink={"#"}
+                    setButtonOn={setButtonOn}
+                />
+            ) : null}
             <Sidebar
                 profileUsername={userData.username}
                 profileTag={userData.tag}
                 profilePic={userData.profilePic}
                 profileLink={"#"}
+                setButtonOn={setButtonOn}
             />
 
             <div className="main__center">

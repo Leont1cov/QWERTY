@@ -11,6 +11,14 @@
     top: 0;
     left: 0;
 
+    &__PostPublication {
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
     &__logo {
         padding-left: 8px;
         padding-top: 5px;

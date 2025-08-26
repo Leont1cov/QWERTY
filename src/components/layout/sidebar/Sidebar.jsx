@@ -7,6 +7,7 @@ export default function Sidebar({
     profileTag,
     profilePic,
     profileLink,
+    setButtonOn,
 }) {
     return (
         <div className="sidebar">
@@ -30,6 +31,7 @@ export default function Sidebar({
                         title={"Post"}
                         buttonClass="button"
                         button__titleClass="button__title"
+                        onClick={() => setButtonOn((prev) => !prev)}
                     />
 
                     <a
