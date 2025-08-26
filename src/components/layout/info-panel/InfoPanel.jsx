@@ -94,7 +94,7 @@ export default function InfoPanel() {
     useEffect(() => {
         function renderApis() {
             getWeather()
-            getStocks()
+            // getStocks()
         }
 
         renderApis()
@@ -180,12 +180,19 @@ export default function InfoPanel() {
 
     const stocks = stockNames.map((stock, i) => (
         <Stock
+            // key={i}
+            // stockName={stockName(i)}
+            // companyName={companyNamePath(i)}
+            // currentPrice={currentPrice(i)}
+            // differencePercentage={percentageDifference(i)}
+            // up={up(i)}
+
             key={i}
-            stockName={stockName(i)}
-            companyName={companyNamePath(i)}
-            currentPrice={currentPrice(i)}
-            differencePercentage={percentageDifference(i)}
-            up={up(i)}
+            stockName={"AAPL"}
+            companyName={"Apple"}
+            currentPrice={"$1,235"}
+            differencePercentage={"2%"}
+            up={true}
         />
     ))
 
